@@ -39,7 +39,7 @@
           <div class="hp-name">Відеокарти для 1080p/1440p</div>
           <div class="muted">Підбір під FPS та твій монітор</div>
           <div class="hp-actions">
-            <a class="btn btn-outline" href="<?php echo esc_url(home_url('/catalog')); ?>">Дивитись</a>
+            <a class="btn btn-outline" href="<?php echo esc_url(home_url('/graphics-cards')); ?>">Дивитись</a>
             <a class="btn" href="<?php echo esc_url(home_url('/contacts')); ?>">Підібрати</a>
           </div>
         </div>
@@ -62,28 +62,24 @@
   </div>
 
   <div class="grid grid-4">
-    <a class="card cat-card" href="<?php echo esc_url(home_url('/catalog')); ?>">
+    <a class="card cat-card" href="<?php echo esc_url(home_url('/monitors')); ?>">
       <div class="cat-emoji">🖥️</div>
       <strong>Монітори</strong>
-      <div class="muted">144Hz • IPS • 2K</div>
     </a>
 
-    <a class="card cat-card" href="<?php echo esc_url(home_url('/catalog')); ?>">
+    <a class="card cat-card" href="<?php echo esc_url(home_url('/mice')); ?>">
       <div class="cat-emoji">🖱️</div>
       <strong>Миші</strong>
-      <div class="muted">сенсор • DPI • RGB</div>
     </a>
 
-    <a class="card cat-card" href="<?php echo esc_url(home_url('/catalog')); ?>">
+    <a class="card cat-card" href="<?php echo esc_url(home_url('/keyboards')); ?>">
       <div class="cat-emoji">⌨️</div>
       <strong>Клавіатури</strong>
-      <div class="muted">механіка • свічі</div>
     </a>
 
-    <a class="card cat-card" href="<?php echo esc_url(home_url('/catalog')); ?>">
+    <a class="card cat-card" href="<?php echo esc_url(home_url('/headphones')); ?>">
       <div class="cat-emoji">🎧</div>
       <strong>Навушники</strong>
-      <div class="muted">мікрофон • 7.1</div>
     </a>
   </div>
 </section>
@@ -112,7 +108,7 @@
   </div>
 </section>
 
-<!-- TOP PRODUCTS (DEMO) -->
+<!-- TOP PRODUCTS -->
 <section class="container section">
   <div class="section-head">
     <h2 class="section-title">Топ товари 2025</h2>
@@ -122,52 +118,52 @@
   <div class="grid grid-4">
     <a class="card product-card" href="#">
       <div class="product-top">
-        <span class="pill">ТОП</span>
+        <span class="pill">Хіт</span>
         <span class="pill pill-outline">Gaming</span>
       </div>
-      <strong>Монітор 27" 2K 165Hz</strong>
-      <div class="muted" style="margin-top:8px;">IPS • G-Sync/FreeSync</div>
+      <strong>Samsung Odyssey 27"</strong>
+      <div class="muted" style="margin-top:8px;">27" • IPS • 165Hz • 1ms • QHD</div>
       <div class="price-row">
-        <span class="price">від 9 999 грн</span>
+        <span class="price">9 999 грн</span>
         <span class="muted">в наявності</span>
       </div>
     </a>
 
     <a class="card product-card" href="#">
       <div class="product-top">
-        <span class="pill">ХІТ</span>
-        <span class="pill pill-outline">Office</span>
+        <span class="pill">NVMe</span>
+        <span class="pill pill-outline">1TB</span>
       </div>
-      <strong>SSD NVMe 1TB Gen4</strong>
-      <div class="muted" style="margin-top:8px;">швидке завантаження • ігри</div>
+      <strong>Samsung 980 1TB NVMe</strong>
+      <div class="muted" style="margin-top:8px;">NVMe • M.2 • 1TB • Fast</div>
       <div class="price-row">
-        <span class="price">від 2 399 грн</span>
+        <span class="price">2 999 грн</span>
         <span class="muted">в наявності</span>
       </div>
     </a>
 
     <a class="card product-card" href="#">
       <div class="product-top">
-        <span class="pill">ТОП</span>
-        <span class="pill pill-outline">FPS</span>
+        <span class="pill">PRO</span>
+        <span class="pill pill-outline">eSports</span>
       </div>
-      <strong>Миша 26K DPI</strong>
-      <div class="muted" style="margin-top:8px;">легка • точний сенсор</div>
+      <strong>Logitech G Pro X Superlight</strong>
+      <div class="muted" style="margin-top:8px;">Wireless • 25600 DPI • Ultra Light</div>
       <div class="price-row">
-        <span class="price">від 1 299 грн</span>
+        <span class="price">3 999 грн</span>
         <span class="muted">в наявності</span>
       </div>
     </a>
 
     <a class="card product-card" href="#">
       <div class="product-top">
-        <span class="pill">NEW</span>
-        <span class="pill pill-outline">Audio</span>
+        <span class="pill">Хіт</span>
+        <span class="pill pill-outline">Gaming</span>
       </div>
-      <strong>Навушники з мікрофоном</strong>
-      <div class="muted" style="margin-top:8px;">шумозаглушення • 7.1</div>
+      <strong>HyperX Cloud II</strong>
+      <div class="muted" style="margin-top:8px;">Wired • Gaming • 7.1 • Mic</div>
       <div class="price-row">
-        <span class="price">від 1 799 грн</span>
+        <span class="price">399 грн</span>
         <span class="muted">в наявності</span>
       </div>
     </a>

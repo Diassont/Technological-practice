@@ -4,11 +4,11 @@
   <div class="container footer-inner">
     <div class="footer-col">
       <div class="footer-logo">DIS<span>STORE</span></div>
-      <p class="muted">Комплектуючі та периферія в оранжевому стилі.</p>
+      <p class="muted"> Комплектуючі та периферія для роботи, навчання та ігор.</p>
     </div>
 
     <div class="footer-col">
-      <div class="footer-title">Навігація</div>
+      <div class="footer-title"></div>
       <?php
         wp_nav_menu([
           'theme_location' => 'footer_menu',
@@ -22,7 +22,7 @@
     <div class="footer-col">
       <div class="footer-title">Контакти</div>
       <p class="muted">support@disstore.ua</p>
-      <p class="muted">+380 XX XXX XX XX</p>
+      <p class="muted">+380 95 105 51 67</p>
     </div>
   </div>
 
@@ -55,13 +55,17 @@
         </div>
 
         <div class="modal__actions">
-          <button class="btn" type="button" data-close>Закрити</button>
+          <a class="btn" id="modalBuy" href="<?php echo esc_url(home_url('/contacts')); ?>" target="_self">Придбати</a>
+          <button class="btn btn-outline" type="button" data-close>Закрити</button>
         </div>
+
+        <p class="modal__hint">
+          Натисни <strong>«Придбати»</strong> — і ми уточнимо наявність та доставку.
+        </p>
       </div>
     </div>
   </div>
 </div>
-
 
 <?php wp_footer(); ?>
 </body>

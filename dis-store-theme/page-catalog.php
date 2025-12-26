@@ -13,160 +13,194 @@
   </div>
 
   <h2 class="section-title" style="margin-top:22px;">Категорії</h2>
-  <div class="grid grid-4" style="margin-top:12px;">
-    <a class="card cat-card" href="#"><div class="cat-emoji">🖥️</div><strong>Монітори</strong><div class="muted">144Hz • IPS • 2K</div></a>
-    <a class="card cat-card" href="#"><div class="cat-emoji">🖱️</div><strong>Миші</strong><div class="muted">сенсор • DPI • RGB</div></a>
-    <a class="card cat-card" href="#"><div class="cat-emoji">⌨️</div><strong>Клавіатури</strong><div class="muted">механіка • свічі</div></a>
-    <a class="card cat-card" href="#"><div class="cat-emoji">🎧</div><strong>Навушники</strong><div class="muted">мікрофон • 7.1</div></a>
+  <div class="grid grid-4">
+    <a class="card cat-card" href="<?php echo esc_url(home_url('/monitors')); ?>">
+      <div class="cat-emoji">🖥️</div>
+      <strong>Монітори</strong>
+    </a>
+
+    <a class="card cat-card" href="<?php echo esc_url(home_url('/mice')); ?>">
+      <div class="cat-emoji">🖱️</div>
+      <strong>Миші</strong>
+    </a>
+
+    <a class="card cat-card" href="<?php echo esc_url(home_url('/keyboards')); ?>">
+      <div class="cat-emoji">⌨️</div>
+      <strong>Клавіатури</strong>
+    </a>
+
+    <a class="card cat-card" href="<?php echo esc_url(home_url('/headphones')); ?>">
+      <div class="cat-emoji">🎧</div>
+      <strong>Навушники</strong>
+    </a>
   </div>
 
-  <h2 class="section-title" style="margin-top:28px;">Популярні товари (демо)</h2>
+  <h2 class="section-title" style="margin-top:28px;">Популярні товари</h2>
 
   <div class="product-grid" style="margin-top:12px;">
 
-    <!-- CARD 1 -->
-    <article class="p-card">
-      <div class="p-imgwrap">
-        <img class="p-img"
-             src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/demo-monitor.jpg'); ?>"
-             alt="Монітор 27&quot; 2K 165Hz"
-             loading="lazy">
-      </div>
-
-      <div class="p-body">
-        <h3 class="p-title">Монітор 27" 2K 165Hz</h3>
-        <p class="p-desc">IPS матриця, плавний геймплей, ідеально для 1440p.</p>
-
-        <div class="p-meta">
-          <span class="pill">ТОП</span>
-          <span class="pill pill-outline">Gaming</span>
+  <!-- CARD 1 -->
+      <article class="p-card" data-brand="samsung" data-size="27" data-refresh="165" data-panel="ips" data-price="9999">
+        <div class="p-imgwrap">
+          <img class="p-img"
+            src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/monitor-1.png'); ?>"
+            alt="Samsung Odyssey 27&quot;"
+            loading="lazy">
         </div>
 
-        <div class="p-bottom">
-          <div class="p-price">
-            <div class="price">9 999 грн</div>
-            <div class="muted">в наявності</div>
+        <div class="p-body">
+          <h3 class="p-title">Samsung Odyssey 27"</h3>
+          <p class="p-desc">27" • IPS • 165Hz • 1ms • QHD</p>
+
+          <div class="p-meta">
+            <span class="pill">Хіт</span>
+            <span class="pill pill-outline">Gaming</span>
           </div>
 
-          <button class="btn btn-outline p-more"
-            data-title="Монітор 27&quot; 2K 165Hz"
-            data-price="9 999 грн"
-            data-stock="В наявності • відправка 1–2 дні"
-            data-img="<?php echo esc_url(get_template_directory_uri() . '/assets/img/demo-monitor.jpg'); ?>"
-            data-desc="IPS, 165Hz, 1ms, підтримка Adaptive Sync. Рекомендовано для FPS/Action у 1440p."
-            data-specs="Діагональ: 27&quot;|Роздільна: 2560×1440|Частота: 165Hz|Матриця: IPS|Порти: HDMI/DP"
-          >Детальніше</button>
+          <div class="p-bottom">
+            <div class="p-price">
+              <div class="price">9 999 грн</div>
+              <div class="muted">в наявності</div>
+            </div>
+
+            <button class="btn btn-outline p-more"
+              data-title="Samsung Odyssey 27&quot;"
+              data-price="9 999 грн"
+              data-stock="В наявності • відправка 1–2 дні"
+              data-img="<?php echo esc_url(get_template_directory_uri() . '/assets/img/monitor-1.png'); ?>"
+              data-desc="Ігровий монітор з високою частотою оновлення та чіткою картинкою. Підійде для FPS і роботи з графікою."
+              data-specs="Діагональ: 27&quot;|Матриця: IPS|Роздільна здатність: QHD|Частота: 165Hz|Відгук: 1ms"
+            >Детальніше</button>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
 
-    <!-- CARD 2 -->
-    <article class="p-card">
-      <div class="p-imgwrap">
-        <img class="p-img"
-             src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/demo-ssd.jpg'); ?>"
-             alt="SSD NVMe 1TB Gen4"
-             loading="lazy">
-      </div>
+  <!-- CARD 2 -->
+      <article class="p-card"
+        data-type="nvme"
+        data-size="1000"
+        data-iface="m2"
+        data-price="2999">
 
-      <div class="p-body">
-        <h3 class="p-title">SSD NVMe 1TB Gen4</h3>
-        <p class="p-desc">Швидке завантаження Windows, ігор та програм.</p>
-
-        <div class="p-meta">
-          <span class="pill">ХІТ</span>
-          <span class="pill pill-outline">Office</span>
+        <div class="p-imgwrap">
+          <img class="p-img"
+            src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/storage-2.png'); ?>"
+            alt="Samsung 980 1TB NVMe"
+            loading="lazy">
         </div>
 
-        <div class="p-bottom">
-          <div class="p-price">
-            <div class="price">2 399 грн</div>
-            <div class="muted">в наявності</div>
+        <div class="p-body">
+          <h3 class="p-title">Samsung 980 1TB NVMe</h3>
+          <p class="p-desc">NVMe • M.2 • 1TB • Fast</p>
+
+          <div class="p-meta">
+            <span class="pill">NVMe</span>
+            <span class="pill pill-outline">1TB</span>
           </div>
 
-          <button class="btn btn-outline p-more"
-            data-title="SSD NVMe 1TB Gen4"
-            data-price="2 399 грн"
-            data-stock="В наявності • гарантія 12 міс"
-            data-img="<?php echo esc_url(get_template_directory_uri() . '/assets/img/demo-ssd.jpg'); ?>"
-            data-desc="NVMe Gen4 — відмінний вибір для ігор, монтажу та швидкого запуску системи."
-            data-specs="Обʼєм: 1TB|Інтерфейс: PCIe 4.0|Форм-фактор: M.2 2280|Швидкість: до 7000 MB/s"
-          >Детальніше</button>
+          <div class="p-bottom">
+            <div class="p-price">
+              <div class="price">2 999 грн</div>
+              <div class="muted">в наявності</div>
+            </div>
+
+            <button class="btn btn-outline p-more"
+              data-title="Samsung 980 1TB NVMe"
+              data-price="2 999 грн"
+              data-stock="В наявності • відправка 1–2 дні"
+              data-img="<?php echo esc_url(get_template_directory_uri() . '/assets/img/storage-2.png'); ?>"
+              data-desc="Швидкий NVMe SSD для ігор та системи."
+              data-specs="Тип: NVMe|Обсяг: 1TB|Інтерфейс: M.2|Клас: швидкий"
+            >Детальніше</button>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
 
-    <!-- CARD 3 -->
-    <article class="p-card">
-      <div class="p-imgwrap">
-        <img class="p-img"
-             src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/demo-mouse.jpg'); ?>"
-             alt="Миша 26K DPI"
-             loading="lazy">
-      </div>
+  <!-- CARD 3 -->
+      <article class="p-card"
+        data-brand="logitech"
+        data-type="gaming"
+        data-connection="wireless"
+        data-sensor="optical"
+        data-dpi="25600"
+        data-price="3999">
 
-      <div class="p-body">
-        <h3 class="p-title">Миша 26K DPI</h3>
-        <p class="p-desc">Легка, точна, стабільна — для шутерів та кіберспорту.</p>
-
-        <div class="p-meta">
-          <span class="pill">ТОП</span>
-          <span class="pill pill-outline">FPS</span>
+        <div class="p-imgwrap">
+          <img class="p-img"
+            src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/mouse-1.png'); ?>"
+            alt="Logitech G Pro X Superlight"
+            loading="lazy">
         </div>
 
-        <div class="p-bottom">
-          <div class="p-price">
-            <div class="price">1 299 грн</div>
-            <div class="muted">в наявності</div>
+        <div class="p-body">
+          <h3 class="p-title">Logitech G Pro X Superlight</h3>
+          <p class="p-desc">Wireless • 25600 DPI • Ultra Light</p>
+
+          <div class="p-meta">
+            <span class="pill">PRO</span>
+            <span class="pill pill-outline">eSports</span>
           </div>
 
-          <button class="btn btn-outline p-more"
-            data-title="Миша 26K DPI"
-            data-price="1 299 грн"
-            data-stock="В наявності • доставка по Україні"
-            data-img="<?php echo esc_url(get_template_directory_uri() . '/assets/img/demo-mouse.jpg'); ?>"
-            data-desc="Сенсор 26K DPI, зручний хват, відмінна точність та швидка реакція."
-            data-specs="Сенсор: 26K DPI|Вага: 65–75г|Підключення: USB|Перемикачі: до 50M кліків"
-          >Детальніше</button>
+          <div class="p-bottom">
+            <div class="p-price">
+              <div class="price">3 999 грн</div>
+              <div class="muted">в наявності</div>
+            </div>
+
+            <button class="btn btn-outline p-more"
+              data-title="Logitech G Pro X Superlight"
+              data-price="3 999 грн"
+              data-stock="В наявності • відправка 1–2 дні"
+              data-img="<?php echo esc_url(get_template_directory_uri() . '/assets/img/mouse-1.png'); ?>"
+              data-desc="Надлегка професійна миша для кіберспорту з максимально точним сенсором."
+              data-specs="Тип: Gaming|Підключення: Wireless|DPI: 25600|Сенсор: Optical|Вага: ~63г"
+            >Детальніше</button>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
 
-    <!-- CARD 4 -->
-    <article class="p-card">
-      <div class="p-imgwrap">
-        <img class="p-img"
-             src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/demo-headset.jpg'); ?>"
-             alt="Навушники з мікрофоном"
-             loading="lazy">
-      </div>
+  <!-- CARD 4 -->
+      <article class="p-card"
+        data-brand="hyperx"
+        data-type="wired"
+        data-form="over-ear"
+        data-mic="yes"
+        data-anc="no"
+        data-price="3299">
 
-      <div class="p-body">
-        <h3 class="p-title">Навушники з мікрофоном</h3>
-        <p class="p-desc">Чіткий звук + мікрофон для Discord/CS/Valorant.</p>
-
-        <div class="p-meta">
-          <span class="pill">NEW</span>
-          <span class="pill pill-outline">Audio</span>
+        <div class="p-imgwrap">
+          <img class="p-img"
+            src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/headphones-2.png'); ?>"
+            alt="HyperX Cloud II"
+            loading="lazy">
         </div>
 
-        <div class="p-bottom">
-          <div class="p-price">
-            <div class="price">1 799 грн</div>
-            <div class="muted">в наявності</div>
+        <div class="p-body">
+          <h3 class="p-title">HyperX Cloud II</h3>
+          <p class="p-desc">Wired • Gaming • 7.1 • Mic</p>
+
+          <div class="p-meta">
+            <span class="pill">Хіт</span>
+            <span class="pill pill-outline">Gaming</span>
           </div>
 
-          <button class="btn btn-outline p-more"
-            data-title="Навушники з мікрофоном"
-            data-price="1 799 грн"
-            data-stock="В наявності • гарантія 12 міс"
-            data-img="<?php echo esc_url(get_template_directory_uri() . '/assets/img/demo-headset.jpg'); ?>"
-            data-desc="Комфортна посадка, якісний мікрофон, збалансований звук для ігор і музики."
-            data-specs="Формат: Over-ear|Мікрофон: є|Підключення: USB/Jack|Звук: стерео/7.1 (залежить від моделі)"
-          >Детальніше</button>
+          <div class="p-bottom">
+            <div class="p-price">
+              <div class="price">3 299 грн</div>
+              <div class="muted">в наявності</div>
+            </div>
+
+            <button class="btn btn-outline p-more"
+              data-title="HyperX Cloud II"
+              data-price="3 299 грн"
+              data-stock="В наявності • відправка 1–2 дні"
+              data-img="<?php echo esc_url(get_template_directory_uri() . '/assets/img/headphones-2.png'); ?>"
+              data-desc="Легендарні ігрові навушники з комфортною посадкою та якісним мікрофоном."
+              data-specs="Тип: Wired|Форма: Over-Ear|7.1: так|Мікрофон: є|Призначення: Gaming"
+            >Детальніше</button>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
 
   </div>
 </section>

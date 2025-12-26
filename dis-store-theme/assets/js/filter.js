@@ -6,10 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const cards = Array.from(grid.querySelectorAll(".p-card"));
   const empty = document.getElementById("filterEmpty");
 
-  // ✅ Конфіг фільтрів під тип сторінки (19 сторінок)
-  // Правило:
-  // - key = dataset-ключ (data-brand -> "brand", data-socket -> "socket")
-  // - якщо атрибут у HTML через дефіс (data-cable-type) => додаємо dataKey: "cable-type"
   const FILTERS = {
 
     // 1) Ноутбуки
@@ -22,153 +18,162 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 2) Комп’ютери
     computers: [
-      { key: "brand",  label: "Бренд",      type: "select" },   // наприклад: dell, hp, lenovo, custom
-      { key: "cpu",    label: "Процесор",   type: "select" },   // intel, amd або i5, r5 і т.д.
-      { key: "ram",    label: "RAM",        type: "select" },
-      { key: "price",  label: "Ціна",       type: "price" },
+      { key: "brand", label: "Бренд", type: "select" },
+      { key: "cpu",   label: "CPU",   type: "select" },
+      { key: "gpu",   label: "GPU",   type: "select" },
+      { key: "ram",   label: "RAM",   type: "select" },
+      { key: "ssd",   label: "SSD",   type: "select" },
+      { key: "price", label: "Ціна",  type: "price"  },
     ],
 
     // 3) Клавіатури
     keyboards: [
-      { key: "type",       label: "Тип",        type: "select" }, // mechanical, membrane
-      { key: "layout",     label: "Розкладка",  type: "select" }, // ua, us, uk
-      { key: "connection", label: "Зв’язок",    type: "select" }, // usb, wireless, bt
-      { key: "price",      label: "Ціна",       type: "price" },
+      { key: "brand",      label: "Бренд",       type: "select" },
+      { key: "type",       label: "Тип",         type: "select" },     
+      { key: "connection", label: "Підключення", type: "select" },    
+      { key: "layout",     label: "Розкладка",   type: "select" },    
+      { key: "backlight",  label: "Підсвітка",   type: "select" },     
+      { key: "price",      label: "Ціна",        type: "price"  },
     ],
 
     // 4) Мишки
     mice: [
-      { key: "type",       label: "Тип",        type: "select" }, // gaming, office
-      { key: "sensor",     label: "Сенсор",     type: "select" }, // optical, laser
-      { key: "connection", label: "Зв’язок",    type: "select" }, // usb, wireless, bt
-      { key: "price",      label: "Ціна",       type: "price" },
+      { key: "brand",      label: "Бренд",        type: "select" },
+      { key: "type",       label: "Тип",          type: "select" },     
+      { key: "connection", label: "Підключення",  type: "select" },     
+      { key: "sensor",     label: "Сенсор",       type: "select" },    
+      { key: "dpi",        label: "DPI",          type: "select" },
+      { key: "price",      label: "Ціна",         type: "price"  },
     ],
 
     // 5) Навушники
     headphones: [
-      { key: "type",       label: "Тип",        type: "select" }, // in-ear, over-ear, on-ear
-      { key: "connection", label: "Зв’язок",    type: "select" }, // wired, bt
-      { key: "micro",      label: "Мікрофон",   type: "select" }, // yes, no
-      { key: "price",      label: "Ціна",       type: "price" },
+      { key: "brand", label: "Бренд", type: "select" },
+      { key: "type",  label: "Тип", type: "select" },        
+      { key: "form",  label: "Форма", type: "select" },      
+      { key: "mic",   label: "Мікрофон", type: "select" },   
+      { key: "anc",   label: "ANC", type: "select" },        
+      { key: "price", label: "Ціна", type: "price" },
     ],
 
     // 6) Мікрофони
     microphones: [
-      { key: "type",       label: "Тип",        type: "select" }, // condenser, dynamic
-      { key: "connection", label: "Зв’язок",    type: "select" }, // usb, xlr
-      { key: "pattern",    label: "Спрям.",     type: "select" }, // cardioid, omni
+      { key: "type",       label: "Тип",        type: "select" }, 
+      { key: "connection", label: "Зв’язок",    type: "select" }, 
+      { key: "pattern",    label: "Спрям.",     type: "select" }, 
       { key: "price",      label: "Ціна",       type: "price" },
     ],
 
     // 7) Монітори
     monitors: [
-      { key: "size",     label: "Діагональ", type: "select" }, // 24, 27, 32
-      { key: "res",      label: "Роздільна", type: "select" }, // 1080p, 1440p, 4k
-      { key: "hz",       label: "Hz",        type: "select" }, // 60, 144, 165
-      { key: "price",    label: "Ціна",      type: "price" },
+      { key: "brand",  label: "Бренд", type: "select" },
+      { key: "size",   label: "Діагональ", type: "select" },
+      { key: "refresh",label: "Hz", type: "select" },
+      { key: "panel",  label: "Матриця", type: "select" },
+      { key: "price",  label: "Ціна", type: "price" },
     ],
 
     // 8) Материнські плати
     motherboards: [
-      { key: "socket",  label: "Socket",    type: "select" }, // am4, am5, lga1700
-      { key: "chipset", label: "Чипсет",    type: "select" }, // b550, x570, b760
-      { key: "form",    label: "Форм-фактор", type: "select" }, // atx, matx, itx
-      { key: "price",   label: "Ціна",      type: "price" },
+      { key: "socket",  label: "Socket",      type: "select" },
+      { key: "chipset", label: "Чипсет",      type: "select" }, 
+      { key: "form",    label: "Форм-фактор", type: "select" }, 
+      { key: "price",   label: "Ціна",        type: "price"  },
     ],
 
     // 9) Процесори
     processors: [
-      { key: "brand",   label: "Бренд",   type: "select" }, // amd, intel
-      { key: "socket",  label: "Socket",  type: "select" },
-      { key: "cores",   label: "Ядра",    type: "select" }, // 4,6,8,12,16
-      { key: "price",   label: "Ціна",    type: "price" },
+      { key: "brand",  label: "Бренд",  type: "select" },
+      { key: "socket", label: "Socket", type: "select" }, 
+      { key: "cores",  label: "Ядра",   type: "select" }, 
+      { key: "price",  label: "Ціна",   type: "price"  },
     ],
 
     // 10) Відеокарти
     "graphics-cards": [
-      { key: "brand",   label: "Бренд",   type: "select" }, // nvidia, amd, intel
-      { key: "vram",    label: "VRAM",    type: "select" }, // 8, 12, 16
-      { key: "series",  label: "Серія",   type: "select" }, // rtx40, rtx30, rx7000...
-      { key: "price",   label: "Ціна",    type: "price" },
+      { key: "brand",  label: "Бренд",   type: "select" },
+      { key: "vram",   label: "VRAM",    type: "select" },
+      { key: "series", label: "Серія",   type: "select" },
+      { key: "price",  label: "Ціна",    type: "price"  },
     ],
 
     // 11) ОЗП
     ram: [
-      { key: "type",   label: "Тип",     type: "select" }, // ddr4, ddr5
-      { key: "size",   label: "Обсяг",   type: "select" }, // 8,16,32,64
-      { key: "mhz",    label: "Частота", type: "select" }, // 3200, 3600, 6000
-      { key: "price",  label: "Ціна",    type: "price" },
+      { key: "type",  label: "Тип",     type: "select" }, 
+      { key: "size",  label: "Обсяг",   type: "select" },
+      { key: "mhz",   label: "Частота", type: "select" }, 
+      { key: "price", label: "Ціна",    type: "price" },
     ],
 
     // 12) Накопичувачі
     storage: [
-      { key: "type",   label: "Тип",     type: "select" }, // ssd, hdd, nvme
-      { key: "size",   label: "Обсяг",   type: "select" }, // 256,512,1000...
-      { key: "iface",  label: "Інтерфейс", type: "select" }, // sata, m2
-      { key: "price",  label: "Ціна",    type: "price" },
+      { key: "type",  label: "Тип",       type: "select" }, 
+      { key: "size",  label: "Обсяг",     type: "select" }, 
+      { key: "iface", label: "Інтерфейс", type: "select" }, 
+      { key: "price", label: "Ціна",      type: "price"  },
     ],
 
     // 13) Блоки живлення
     "power-supplies": [
-      { key: "watt",   label: "Потужність", type: "select" }, // 500,650,750
-      { key: "cert",   label: "Сертифікат", type: "select" }, // bronze,gold
-      { key: "mod",    label: "Модульність", type: "select" }, // yes,no
-      { key: "price",  label: "Ціна",       type: "price" },
+      { key: "watt",  label: "Потужність",  type: "select" }, 
+      { key: "cert",  label: "Сертифікат",  type: "select" }, 
+      { key: "mod",   label: "Модульність", type: "select" }, 
+      { key: "price", label: "Ціна",        type: "price"  },
     ],
 
     // 14) Системи охолодження
     "cooling-systems": [
-      { key: "type",   label: "Тип",     type: "select" }, // air, aio
-      { key: "socket", label: "Socket",  type: "select" },
-      { key: "size",   label: "Розмір",  type: "select" }, // 120,240,360 (для AIO) або tower
-      { key: "price",  label: "Ціна",    type: "price" },
+      { key: "type",   label: "Тип",    type: "select" }, 
+      { key: "socket", label: "Socket", type: "select" }, 
+      { key: "size",   label: "Розмір", type: "select" }, 
+      { key: "price",  label: "Ціна",   type: "price"  },
     ],
 
     // 15) Корпуси
     "pc-cases": [
-      { key: "form",   label: "Форм-фактор", type: "select" }, // atx, matx, itx
-      { key: "size",   label: "Розмір",      type: "select" }, // mid, full, mini
-      { key: "glass",  label: "Скло",        type: "select" }, // yes,no
-      { key: "price",  label: "Ціна",        type: "price" },
+      { key: "form",  label: "Форм-фактор", type: "select" }, 
+      { key: "size",  label: "Розмір",      type: "select" }, 
+      { key: "glass", label: "Скло",        type: "select" }, 
+      { key: "price", label: "Ціна",        type: "price"  },
     ],
 
     // 16) Кабелі мультимедійні
     "multimedia-cables": [
-      { key: "cableType", label: "Тип", type: "select", dataKey: "cable-type" }, // hdmi, dp, usb-c
-      { key: "length",    label: "Довжина (м)", type: "select" },                 // 1,2,3,5
-      { key: "version",   label: "Версія", type: "select" },                      // 2.0,2.1,1.4...
-      { key: "price",     label: "Ціна", type: "price" },
+      { key: "cableType", label: "Тип",        type: "select", dataKey: "cable-type" }, 
+      { key: "length",    label: "Довжина (м)", type: "select" },                         
+      { key: "version",   label: "Версія",     type: "select" },                      
+      { key: "price",     label: "Ціна",       type: "price" },
     ],
 
     // 17) Принтери
     printers: [
-      { key: "type",    label: "Тип",    type: "select" }, // inkjet, laser
-      { key: "color",   label: "Колір",  type: "select" }, // mono, color
-      { key: "format",  label: "Формат", type: "select" }, // a4, a3
-      { key: "price",   label: "Ціна",   type: "price" },
+      { key: "type",   label: "Тип",    type: "select" },
+      { key: "color",  label: "Колір",  type: "select" }, 
+      { key: "format", label: "Формат", type: "select" },
+      { key: "price",  label: "Ціна",   type: "price"  },
     ],
 
     // 18) Акустичні системи
     "acoustic-systems": [
-      { key: "type",       label: "Тип",     type: "select" }, // 2.0,2.1,5.1,soundbar
-      { key: "connection", label: "Зв’язок", type: "select" }, // bt, aux, usb
-      { key: "power",      label: "Потужн.", type: "select" }, // 10,20,50,100
-      { key: "price",      label: "Ціна",    type: "price" },
+      { key: "type",       label: "Тип",     type: "select" }, 
+      { key: "connection", label: "Зв’язок", type: "select" }, 
+      { key: "power",      label: "Потужн.", type: "select" }, 
+      { key: "price",      label: "Ціна",    type: "price"  },
     ],
 
     // 19) Портативні системи
     "portable-systems": [
-      { key: "type",       label: "Тип",     type: "select" }, // speaker, radio, party
-      { key: "battery",    label: "Батарея", type: "select" }, // 6h,10h,20h
-      { key: "connection", label: "Зв’язок", type: "select" }, // bt, aux, usb
-      { key: "price",      label: "Ціна",    type: "price" },
+      { key: "type",       label: "Тип",     type: "select" }, 
+      { key: "battery",    label: "Батарея", type: "select" },
+      { key: "connection", label: "Зв’язок", type: "select" },
+      { key: "price",      label: "Ціна",    type: "price"  },
     ],
   };
 
   const type = bar.dataset.filter || "laptops";
   const config = FILTERS[type] || FILTERS.laptops;
 
-  // helpers
+  // Helpers
   const el = (tag, cls) => {
     const x = document.createElement(tag);
     if (cls) x.className = cls;
@@ -205,7 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (f.type === "select") {
       const sel = el("select", "filter-select");
-      sel.dataset.key = f.dataKey || f.key; // може бути "cable-type"
+      sel.dataset.key = f.dataKey || f.key; 
       sel.innerHTML = `<option value="">${f.label}: всі</option>`;
       bar.appendChild(sel);
       controls.push(sel);
@@ -248,10 +253,16 @@ document.addEventListener("DOMContentLoaded", () => {
     let shown = 0;
 
     cards.forEach(card => {
-      const title = (card.dataset.title || "").toLowerCase();
+      const title = (card.querySelector(".p-title")?.textContent || "").toLowerCase();
+      const desc  = (card.querySelector(".p-desc")?.textContent || "").toLowerCase();
+      const brand = (card.dataset.brand || "").toLowerCase();
       const price = Number(card.dataset.price || "0");
 
-      let ok = !q || title.includes(q);
+      // шукаємо по бренду/назві/опису
+      const hay = `${brand} ${title} ${desc}`;
+      let ok = !q || hay.includes(q);
+
+
 
       controls.forEach(sel => {
         if (!ok) return;
